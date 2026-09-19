@@ -1,0 +1,54 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+/* =========================
+   MYWORLD CUSTOM SCROLLBAR
+========================= */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #c88ab0 transparent;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #d98fba,
+    #9b7bb8
+  );
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #c978a8,
+    #8767a7
+  );
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}

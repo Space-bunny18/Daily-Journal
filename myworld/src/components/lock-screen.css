@@ -1,0 +1,323 @@
+/* =========================================================
+   MYWORLD LOCK SCREEN
+========================================================= */
+
+.lock-screen {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+
+  padding: 24px;
+
+  background: var(--lock-bg);
+  color: var(--lock-text);
+
+  overflow-y: auto;
+}
+
+.lock-content {
+  width: min(100%, 380px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+/* =========================================================
+   LOCK ICON
+========================================================= */
+
+.lock-icon {
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 20px;
+
+  background: color-mix(
+    in srgb,
+    var(--lock-accent) 12%,
+    transparent
+  );
+
+  color: var(--lock-accent);
+
+  box-shadow: 0 12px 35px color-mix(
+    in srgb,
+    var(--lock-accent) 12%,
+    transparent
+  );
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.lock-brand {
+  margin-bottom: 26px;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+
+  color: var(--lock-muted);
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.lock-content h1 {
+  margin: 0;
+
+  font-size: clamp(27px, 7vw, 34px);
+  line-height: 1.15;
+
+  letter-spacing: -0.035em;
+}
+
+.lock-description {
+  max-width: 280px;
+
+  margin: 10px 0 26px;
+
+  color: var(--lock-muted);
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   PIN DOTS
+========================================================= */
+
+.pin-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  min-height: 20px;
+
+  margin-bottom: 6px;
+}
+
+.pin-dot {
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+
+  background: color-mix(
+    in srgb,
+    var(--lock-text) 13%,
+    transparent
+  );
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.pin-dot-filled {
+  background: var(--lock-accent);
+}
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.lock-error {
+  min-height: 24px;
+
+  margin-bottom: 7px;
+
+  color: #c84c4c;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   KEYPAD
+========================================================= */
+
+.pin-keypad {
+  width: min(100%, 300px);
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 11px;
+
+  margin-top: 2px;
+}
+
+.pin-key {
+  width: 100%;
+  aspect-ratio: 1 / 0.72;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--lock-border);
+  border-radius: 15px;
+
+  background: var(--lock-surface);
+  color: var(--lock-text);
+
+  font: inherit;
+  font-size: 18px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.035);
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.pin-key:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--lock-accent) 30%,
+    var(--lock-border)
+  );
+
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+.pin-key:active {
+  background: color-mix(
+    in srgb,
+    var(--lock-accent) 7%,
+    var(--lock-surface)
+  );
+}
+
+.pin-key-empty {
+  visibility: hidden;
+  cursor: default;
+}
+
+.pin-delete {
+  color: var(--lock-muted);
+}
+
+/* =========================================================
+   UNLOCK BUTTON
+========================================================= */
+
+.unlock-button {
+  width: min(100%, 300px);
+
+  min-height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  margin-top: 18px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: var(--lock-accent);
+  color: #fff;
+
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow: 0 12px 28px color-mix(
+    in srgb,
+    var(--lock-accent) 20%,
+    transparent
+  );
+
+  transition:
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.unlock-button:hover:not(:disabled) {
+  box-shadow: 0 15px 32px color-mix(
+    in srgb,
+    var(--lock-accent) 26%,
+    transparent
+  );
+}
+
+.unlock-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .lock-screen {
+    padding: 18px;
+    align-items: center;
+  }
+
+  .lock-icon {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 17px;
+  }
+
+  .lock-brand {
+    margin-bottom: 21px;
+  }
+
+  .lock-content h1 {
+    font-size: 28px;
+  }
+
+  .lock-description {
+    margin-bottom: 22px;
+  }
+
+  .pin-keypad {
+    width: min(100%, 285px);
+    gap: 9px;
+  }
+
+  .pin-key {
+    border-radius: 13px;
+    font-size: 17px;
+  }
+
+  .unlock-button {
+    width: min(100%, 285px);
+  }
+}
